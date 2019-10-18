@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CinemaLM.Views.FuncionesPage" 
+             xmlns:i18n="clr-namespace:CinemaLM.Helpers">
+    
+    <NavigationPage.TitleView>
+        <Label Text="{i18n:Translate Funciones}" TextColor="#d63031" FontSize="20" FontAttributes="Bold"/>
+    </NavigationPage.TitleView>
+    
+    <ContentPage.Content>
+        <Grid x:Name="gridFunciones" BackgroundColor="#2f3640">
+            <Image Source="{Binding Imagen}" Aspect="AspectFill"/>
+            <BoxView BackgroundColor="Black" Opacity="0.7"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackLayout Padding="10,10,10,10" Grid.Row="0" x:Name="funcionLayout" 
+                         Orientation="Vertical">
+                    <StackLayout Orientation="Horizontal" >
+                        <Label Text="{i18n:Translate Titulo}" FontAttributes="Bold" FontSize="20" TextColor="#d63031"/>
+                        <Label Text=": " FontAttributes="Bold" FontSize="20" TextColor="#d63031"/>
+                        <Label Text="{Binding Nombre}" FontAttributes="Bold" FontSize="20" TextColor="#f5f6fa"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" >
+                        <Label Text="{i18n:Translate Fecha}" FontAttributes="Bold" FontSize="20" TextColor="#d63031"/>
+                        <Label Text=": " FontAttributes="Bold" FontSize="20" TextColor="#d63031"/>
+                        <Label Text="{Binding FechaEstreno}" FontAttributes="Bold" FontSize="20" TextColor="#f5f6fa"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" >
+                        <Label Margin="0,20" 
+                               FontSize="20" 
+                               FontAttributes="Bold"
+                               Text="{i18n:Translate CantidadBoletas}" 
+                               TextColor="#d63031"/>
+                        <Entry x:Name="cantidad"
+                           Placeholder="{i18n:Translate Numero}" 
+                           Keyboard="Numeric" 
+                           WidthRequest="60"
+                           HeightRequest="2"
+                           FontSize="20" 
+                           TextColor="#f5f6fa" 
+                           PlaceholderColor="#7f8fa6" 
+                           FontAttributes="Bold"
+                           MaxLength="2" 
+                           Text="1"/>
+                    </StackLayout>
+                </StackLayout>
+
+                <ListView x:Name="lsFunciones" Grid.Row="1" RowHeight="60" ItemSelected="LsFunciones_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="10,10,10,10" Orientation="Vertical">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Cinema, StringFormat='{0} - '}" 
+                                               FontAttributes="Bold"
+                                               TextColor="#d63031"
+                                               FontSize="15" />
+                                        <Label Text="{Binding Sala, StringFormat='{0} - '}" 
+                                               FontAttributes="Bold"
+                                               TextColor="#d63031"
+                                               FontSize="15"/>
+                                        <Label Text="{Binding Ciudad}" 
+                                               FontAttributes="Bold"
+                                               TextColor="#d63031"
+                                               FontSize="15"/>
+                                    </StackLayout>
+                                    <Label Text="{Binding Precio, StringFormat='{0:C}'}" 
+                                           FontSize="15" 
+                                           TextColor="#f5f6fa"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+           
+
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

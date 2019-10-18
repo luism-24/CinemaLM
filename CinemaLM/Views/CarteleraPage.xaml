@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CinemaLM.Views.CarteleraPage" 
+             xmlns:i18n="clr-namespace:CinemaLM.Helpers">
+    <NavigationPage.TitleView>
+        <Label Text="{i18n:Translate Cartelera}" TextColor="#d63031" FontSize="20" FontAttributes="Bold"/>
+    </NavigationPage.TitleView>
+    
+    <ListView x:Name="lsCartelera" BackgroundColor="#2f3640" RowHeight="150" ItemSelected="LsCartelera_ItemSelected">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal">
+                        <Image WidthRequest="100" Aspect="Fill" Source="{Binding Imagen}"/>
+                        <StackLayout Margin="10,10,10,10" Orientation="Vertical">
+                            <Label Text="{Binding Nombre}" TextColor="#d63031" FontAttributes="Bold" FontSize="20"/>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{i18n:Translate Estreno}" TextColor="#d63031"/>
+                                <Label Text=": " TextColor="#d63031"/>
+                                <Label Text="{Binding FechaEstreno}" TextColor="#f5f6fa"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{i18n:Translate Genero}" TextColor="#d63031"/>
+                                <Label Text=": " TextColor="#d63031"/>
+                                <Label Text="{Binding Genero}" TextColor="#f5f6fa"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Recomendacion}" TextColor="#00a8ff"/>
+                                <Label Text="{Binding Duracion, StringFormat='{0} min'}" TextColor="#f5f6fa"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

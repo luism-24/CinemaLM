@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CinemaLM.Views.CompraPage"
+             xmlns:i18n="clr-namespace:CinemaLM.Helpers">
+    
+    <NavigationPage.TitleView>
+        <Label Text="{i18n:Translate ResumenCompra}" TextColor="#d63031" FontSize="20" FontAttributes="Bold"/>
+    </NavigationPage.TitleView>
+    
+    <ContentPage.Content>
+        <Grid x:Name="compraGrid">
+            <Image Source="{Binding Imagen}" Aspect="AspectFill"/>
+            <BoxView BackgroundColor="Black" Opacity="0.7"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <StackLayout Padding="30,30,30,30" VerticalOptions="Center" Grid.Row="0">
+                    <StackLayout Padding="20,20,20,20" Spacing="30" Orientation="Horizontal" BackgroundColor="#f5f6fa">
+                        <StackLayout >
+                            <Label Text="{i18n:Translate Pelicula}" TextColor="#d63031" FontAttributes="Bold" FontSize="14"/>
+                            <Label Text="{i18n:Translate Titulo}" TextColor="Black" FontSize="14"/>
+                            <Label Text="{i18n:Translate Fecha}" TextColor="Black"  FontSize="14"/>
+                            <Label Text="{i18n:Translate Funcion}" TextColor="#d63031" FontAttributes="Bold" FontSize="14"/>
+                            <Label Text="{i18n:Translate Cinema}" TextColor="Black" FontSize="14"/>
+                            <Label Text="Sala:" TextColor="Black" FontSize="14"/>
+                            <Label Text="{i18n:Translate Ciudad}" TextColor="Black" FontSize="14"/>
+                            <Label Text="{i18n:Translate Tiquetes}" TextColor="#d63031" FontAttributes="Bold" FontSize="14"/>
+                            <Label Text="{i18n:Translate Precio}" TextColor="Black" FontSize="14"/>
+                            <Label Text="{i18n:Translate CantidadBoletas}" TextColor="Black" FontSize="14"/>
+                            <Label Text="{i18n:Translate TotalPagar}" TextColor="Green" FontAttributes="Bold" FontSize="14"/>
+                        </StackLayout>
+
+                        <StackLayout>
+                            <StackLayout x:Name="peliculaLayout">
+                                <Label Text=""/>
+                                <Label Text="{Binding Nombre}"/>
+                                <Label Text="{Binding FechaEstreno}"/>
+                            </StackLayout>
+
+                            <StackLayout x:Name="funcionLayout">
+                                <Label Text=""/>
+                                <Label Text="{Binding Cinema}"/>
+                                <Label Text="{Binding Sala}"/>
+                                <Label Text="{Binding Ciudad}"/>
+                                <Label Text=""/>
+                                <Label Text="{Binding Precio, StringFormat='{0:C}'}"/>
+                                <Label x:Name="LblCantidad"/>
+                                <Label x:Name="LblTotal"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                    </StackLayout>
+                    
+                    <Button HorizontalOptions="Center" 
+                            HeightRequest="40" 
+                            WidthRequest="250"
+                            Text="{i18n:Translate FinalizarCompra}"
+                            BackgroundColor="#d63031"
+                            Margin="0,20"
+                            TextColor="#f5f6fa"
+                            CornerRadius="17"
+                            Clicked="Button_Clicked"
+                            />
+
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

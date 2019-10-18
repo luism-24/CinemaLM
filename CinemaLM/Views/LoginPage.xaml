@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CinemaLM.Views.LoginPage"
+             NavigationPage.HasNavigationBar="false"
+             xmlns:i18n="clr-namespace:CinemaLM.Helpers">
+    <ContentPage.Content>
+        <Grid>
+            <Image Source="login" Aspect="AspectFill"/>
+            <BoxView BackgroundColor="#2f3640" Opacity="0.8" />
+
+            <StackLayout VerticalOptions="Center">
+
+                <Image Source="movies.png" WidthRequest="160"/>
+
+                <Entry x:Name="UserEntry" 
+                        WidthRequest="300" 
+                        Placeholder="{i18n:Translate Usuario}" 
+                        PlaceholderColor="White"
+                        HorizontalOptions="Center"
+                        TextColor="White"/>
+                
+                <Entry x:Name="PasswordEntry" 
+                        TextColor="White" 
+                        WidthRequest="300" 
+                        Placeholder="{i18n:Translate Contrasena}" 
+                        PlaceholderColor="White"
+                        HorizontalOptions="Center"
+                        IsPassword="True"/>
+
+                <Button Text="{i18n:Translate Ingresar}" 
+                        HorizontalOptions="CenterAndExpand" 
+                        BackgroundColor="White" 
+                        HeightRequest="40" 
+                        WidthRequest="300"
+                        CornerRadius="20"
+                        Margin="0,20" 
+                        Clicked="Button_Clicked"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
